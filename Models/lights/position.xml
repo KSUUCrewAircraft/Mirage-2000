@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<PropertyList>
+
+  <path>position.ac</path>
+
+  <animation>
+    <object-name>contourlight</object-name>
+    <object-name>light</object-name>
+  </animation>
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>light</object-name>
+  </effect>
+
+  <animation>
+    <type>alpha-test</type>
+    <alpha-factor> 0.01 </alpha-factor>
+  </animation>
+
+  <!-- day : off -->
+  <animation>
+    <type>material</type>
+    <object-name>light</object-name>
+    <emission>
+      <red>   0.0 </red>
+      <green> 0.0 </green>
+      <blue>  0.0 </blue>
+    </emission>
+    <condition>
+      <and>
+        <less-than>
+          <property>sim/time/sun-angle-rad</property>
+          <value>1.58</value>
+        </less-than>
+        <property>/systems/electrical/volts</property>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- night : on and low -->
+  <animation>
+    <type>material</type>
+    <object-name>light</object-name>
+    <emission>
+      <red>   0.0 </red>
+      <green> 0.5 </green>
+      <blue>  0.0 </blue>
+    </emission>
+    <condition>
+      <and>
+        <greater-than>
+          <property>sim/time/sun-angle-rad</property>
+          <value>1.58</value>
+        </greater-than>
+        <property>/systems/electrical/volts</property>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- dusk : on and bright -->
+  <animation>
+    <type>material</type>
+    <object-name>light</object-name>
+    <emission>
+      <red>   0.0 </red>
+      <green> 0.8 </green>
+      <blue>  0.0 </blue>
+    </emission>
+    <condition>
+      <and>
+        <less-than>
+          <property>sim/time/sun-angle-rad</property>
+          <value>1.77</value>
+        </less-than>
+        <greater-than>
+          <property>sim/time/sun-angle-rad</property>
+          <value>1.58</value>
+        </greater-than>
+        <property>/systems/electrical/volts</property>
+      </and>
+    </condition>
+  </animation>
+
+</PropertyList>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<PropertyList>
+
+  <default>
+    <menu n="11">
+      <label>Mirage 2000</label>
+      <enabled type="bool">true</enabled>
+      <item n="0">
+        <label>Select Livery</label>
+        <binding>
+          <command>nasal</command>
+          <script>aircraft.livery.dialog.toggle()</script>
+        </binding>
+      </item>
+
+      <item n="1">
+        <label>Select Logos</label>
+        <binding>
+          <command>nasal</command>
+          <script>mirage2000.logo_dialog.toggle()</script>
+        </binding>
+      </item>
+
+      <item n="2">
+        <label>Fast Config</label>
+        <name>config</name>
+        <binding>
+          <command>dialog-show</command>
+          <dialog-name>config</dialog-name>
+        </binding>
+      </item>
+
+      <item n="3">
+        <label>Start</label>
+        <name>start</name>
+        <binding>
+          <command>nasal</command>
+          <script>mirage2000.engine1.autostart();</script>
+        </binding>
+      </item>
+
+      <item n="4">
+        <label>Toggle Pilot</label>
+        <name>togglepilote</name>
+        <binding>
+          <command>property-toggle</command>
+          <property>/controls/seat/pilot</property>
+        </binding>
+      </item>
+
+    </menu>
+  </default>
+
+</PropertyList>
